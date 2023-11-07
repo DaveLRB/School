@@ -1,25 +1,26 @@
 # School
 1º - Entidades 
-Task
-User
-Book
+Task,
+User,
+Book,
+etc;
 
 
 2º - Relacionamentos
-1 x 1
-1 x N
-N x N
+1 x 1, 
+1 x N, 
+N x N.
 
 
 3º - Classes
-userManager
-taskManager
-toDoManager
-libraryManager
+userManager,
+taskManager,
+toDoManager,
+libraryManager;
 
 
 4º - Métodos
-CRUD - Create, Read,  Update , Delete
+CRUD - Create, Read,  Update , Delete.
 
 Main
 
