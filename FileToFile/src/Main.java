@@ -1,7 +1,4 @@
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
@@ -14,10 +11,10 @@ public class Main {
         String passData = scanner.nextLine();
 
         File file = new File("PassData");
-        FileWriter fileWriter = new FileWriter(file, true);
-        fileWriter.write(passData + "\n");
-        fileWriter.flush();
-        fileWriter.close();
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, true));
+        bufferedWriter.write(passData);
+        bufferedWriter.newLine();
+        bufferedWriter.close();
 
         /*FileReader fileReader = new FileReader(file, StandardCharsets.UTF_8);
         int i;
