@@ -8,35 +8,38 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
+
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter password data: ");
-        String inputData = scanner.nextLine();
+        String passData = scanner.nextLine();
 
         File file = new File("PassData");
         FileWriter fileWriter = new FileWriter(file, true);
-        fileWriter.write(inputData + "\n");
+        fileWriter.write(passData + "\n");
         fileWriter.flush();
         fileWriter.close();
 
-        FileReader fileReader = new FileReader(file, StandardCharsets.UTF_8);
+        /*FileReader fileReader = new FileReader(file, StandardCharsets.UTF_8);
         int i;
         while ((i = fileReader.read()) != -1) {
             System.out.print((char) i);
         }
-        fileReader.close();
+        fileReader.close();*/
 
 
         System.out.print("Enter user data: ");
+        String userData = scanner.nextLine();
         File file1 = new File("UserData");
-        fileWriter.write(inputData + "\n");
-        fileWriter.flush();
-        fileWriter.close();
-        FileReader fileReader1 = new FileReader(file1, StandardCharsets.UTF_8);
+        FileWriter fileWriter1 = new FileWriter(file1, true);
+        fileWriter1.write(userData + "\n");
+        fileWriter1.flush();
+        fileWriter1.close();
+        /*FileReader fileReader1 = new FileReader(file1, StandardCharsets.UTF_8);
 
         while ((i = fileReader1.read()) != -1) {
             System.out.print((char) i);
         }
-        fileReader1.close();
+        fileReader1.close();*/
         scanner.close();
     }
 
