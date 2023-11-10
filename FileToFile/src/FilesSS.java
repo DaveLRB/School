@@ -4,28 +4,22 @@ import java.util.Scanner;
 
 public class FilesSS {
 
-    try {
-        System.out.print("Enter the file name with extension : ");
+    public static void fileToRead (){
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.print("Enter the file name with extension: ");
+            String fileName = scanner.nextLine();
 
-        Scanner input = new Scanner(System.in);
-
-        File file = new File(input.nextLine());
-
-        try {
-            input = new Scanner(file);
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+            try (Scanner fileScanner = new Scanner(new File(fileName))) {
+                while (fileScanner.hasNextLine()) {
+                    String line = fileScanner.nextLine();
+                    System.out.println(line);
+                }
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException("File not found: " + fileName, e);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
-
-
-        while (input.hasNextLine()) {
-            String line = input.nextLine();
-            System.out.println(line);
-        }
-        input.close();
-
-    } catch (Exception ex) {
-        ex.printStackTrace();
     }
 }
 
