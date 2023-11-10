@@ -9,11 +9,9 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        Scanner scanner = new Scanner("PassPass");
+
         File file = new File("PassData");
         FileWriter fileWriter = new FileWriter(file, true);
-        System.out.println("Write here");
-        scanner.nextLine();
         fileWriter.write("BS");
         fileWriter.flush();
         fileWriter.close();
@@ -34,6 +32,10 @@ public class Main {
         }
         fileReader1.close();
 
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Write here");
+        scanner = new Scanner(file, String.valueOf(file1));
     }
 
 

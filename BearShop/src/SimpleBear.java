@@ -1,7 +1,6 @@
 public class SimpleBear {
     private int batteryBear;
 
-
     public int getBatteryBear() {
         return batteryBear;
     }
