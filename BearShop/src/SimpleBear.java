@@ -15,7 +15,7 @@ public class SimpleBear {
 
     public void energyBearOut() {
         if (batteryBear == 0) {
-            System.out.println("Out of power");
+            System.out.println("\033[1;91m" + "Out of power" + "\033[0m");
         }
 
     }
@@ -24,7 +24,7 @@ public class SimpleBear {
         if (batteryBear <= 0) {
             energyBearOut();
         } else {
-            System.out.println("I LOVE YOU!!!");
+            System.out.println("\033[0;31m" + "I LOVE YOU!!!" + "\033[0m");
         }
 
 

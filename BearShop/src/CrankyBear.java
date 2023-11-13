@@ -2,7 +2,7 @@ public class CrankyBear extends SimpleBear {
 
 
     public void singingBear(){
-        System.out.println("Olerilole Olerilola");
+        System.out.println("\033[0;96m" + "Olerilolé Olerilolá" + "\033[0m");
     }
 
     @Override

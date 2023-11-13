@@ -2,7 +2,7 @@ public class DrunkBear extends SimpleBear{
 
 
     public void snoringBear() {
-        System.out.println("RO RO RO RO");
+        System.out.println("\033[0;92m" + "RO RO RO RO" + "\033[0m");
     }
     @Override
     public void talks() {
