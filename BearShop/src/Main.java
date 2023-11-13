@@ -1,10 +1,13 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
-
+        Random random = new Random();
+        int randomBattery = random.nextInt(101);
+        int randomProduction = random.nextInt(51);
         SimpleBear simplebear = new SimpleBear();
         CrankyBear crankybear = new CrankyBear();
         DrunkBear drunkbear = new DrunkBear();
@@ -18,18 +21,18 @@ public class Main {
         switch (option) {
             case "1":
                 System.out.println("Number of bears produced : ");
-                theshop.setNumberOfBear(input.nextInt());
+                theshop.setNumberOfBear(randomProduction);
                 theshop.bearFactory();
                 break;
             case "2":
                 System.out.println("Power Simple Bear : ");
-                simplebear.setBatteryBear(input.nextInt());
+                simplebear.setBatteryBear(randomBattery);
                 simplebear.talks();
                 System.out.println("Power Cranky Bear : ");
-                crankybear.setBatteryBear(input.nextInt());
+                crankybear.setBatteryBear(randomBattery);
                 crankybear.talks();
                 System.out.println("Power Drunk Bear : ");
-                drunkbear.setBatteryBear(input.nextInt());
+                drunkbear.setBatteryBear(randomBattery);
                 drunkbear.talks();
                 break;
             case "3":

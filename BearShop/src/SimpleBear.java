@@ -10,7 +10,6 @@ public class SimpleBear {
     }
 
     public SimpleBear() {
-        this.batteryBear = 100;
 
     }
 
