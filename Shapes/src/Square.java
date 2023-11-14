@@ -1,16 +1,16 @@
-public class Square extends Shapes {
+class Square extends Shapes {
+
+private double heigth;
+private double width;
+
+    public Square(double heigth, double width) {
+        this.heigth = heigth;
+        this.width = width;
+    }
 
     @Override
-    public void calculateArea() {
-
-        System.out.println("heigth : ");
-        double heigth = input.nextDouble();
-        System.out.println("width : ");
-        double width = input.nextDouble();
-        double area = heigth*width;
-
-        System.out.println(area);
-
-
+    double calculateArea() {
+        return heigth*width;
     }
 }
+

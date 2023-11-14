@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="426fa4ce-c61d-499d-9a44-0433f247d705" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Circle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Triangle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FileToFile/PassData" beforeDir="false" afterPath="$PROJECT_DIR$/../FileToFile/PassData" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FileToFile/UserData" beforeDir="false" afterPath="$PROJECT_DIR$/../FileToFile/UserData" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Circle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Circle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Shapes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shapes.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Square.java" afterDir="false" />
     </list>

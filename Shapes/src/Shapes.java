@@ -1,13 +1,13 @@
-import java.util.Scanner;
 
-public class Shapes {
+abstract class Shapes {
 
-    Scanner input = new Scanner(System.in);
-
-    public void calculateArea (){
+   abstract double calculateArea ();
 
 
+   }
 
-    }
 
-}
+
+
+
+

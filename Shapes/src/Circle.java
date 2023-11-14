@@ -1,13 +1,14 @@
-public class Circle extends Shapes {
+class Circle extends Shapes {
+
+private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
 
     @Override
-    public void calculateArea() {
-
-        System.out.println("Radius : ");
-        double radius = input.nextDouble();
-        double areaCircle = Math.PI * Math.pow(radius,2);
-
-        System.out.println(areaCircle);
-
+    double calculateArea() {
+        return Math.PI * radius * radius;
     }
 }
+
