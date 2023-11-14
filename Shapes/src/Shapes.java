@@ -1,9 +1,13 @@
+import java.util.Scanner;
+
 public class Shapes {
 
-    int width;
-    int height;
-    int area;
-    public void calculateArea() {
-        area = width*height;
+    Scanner input = new Scanner(System.in);
+
+    public void calculateArea (){
+
+
+
     }
+
 }
