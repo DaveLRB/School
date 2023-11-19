@@ -1,11 +1,14 @@
+import javax.swing.plaf.synth.SynthOptionPaneUI;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Scanner;
 
 public class GameManager {
 
     private final List<Monster> player1Monsters;
     private final List<Monster> player2Monsters;
+   Scanner input = new Scanner(System.in);
 
     public GameManager() {
         player1Monsters = new ArrayList<>();
@@ -19,6 +22,63 @@ public class GameManager {
 
     public void addP2Monsters(Monster monster) {
         player2Monsters.add(monster);
+    }
+
+    public void startTheGame(){
+        System.out.println("P1 add monsters:");
+        addMonstersPlayer(1);
+        System.out.println("P2 add monsters:");
+        addMonstersPlayer(2);
+    }
+
+    private void addMonstersPlayer(int playerNumber){
+        System.out.println("Enter the number of monsters for Player " + playerNumber + ":");
+        int numMonsters = input.nextInt();
+        input.nextLine();
+
+        for (int i = 0; i< numMonsters; i++){
+            System.out.println("Enter monster type for Monster " + (i + 1) + " (Werewolf, Vampire, or Mummy):");
+            String monsterType = input.nextLine();
+
+            System.out.println("Enter monster name:");
+            String monsterName = input.nextLine();
+
+            System.out.println("Enter monster health:");
+            int monsterHealth = input.nextInt();
+            input.nextLine();
+
+            switch (monsterType.toLowerCase()){
+                case"werewolf":
+                    if (playerNumber == 1){
+                        addP1Monsters(new Werewolf(monsterName, monsterHealth));
+                    }else {
+                        addP2Monsters(new Werewolf(monsterName, monsterHealth));
+                    }
+                    break;
+                case "vampire":
+                    if (playerNumber == 1){
+                        addP1Monsters(new Vampire(monsterName,monsterHealth));
+                    }else{
+                        addP2Monsters(new Vampire(monsterName,monsterHealth));
+                    }
+                    break;
+                case"mummy":
+                    if (playerNumber == 1){
+                        addP1Monsters(new Mummy(monsterName,monsterHealth));
+                    }else{
+                        addP2Monsters(new Mummy(monsterName,monsterHealth));
+                    }
+                    break;
+                default:
+                    System.out.println("Invalid monster type entered. Please enter Werewolf, Vampire, or Mummy.");
+                    i--;
+                    break;
+
+
+            }
+        }
+
+
     }
 
     public void playGame (){
