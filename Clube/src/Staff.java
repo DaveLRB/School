@@ -1,22 +1,22 @@
 abstract class Staff {
 
-    public int salary;
-    public int bonus;
+    public double salary;
+    public double bonus;
+    public static final int MONTHS_WORK = 14;
 
-    public Staff(int salary, int bonus) {
+    public Staff(double salary, double bonus) {
         this.salary = salary;
         this.bonus = bonus;
     }
 
-    public int salaryPerYear(){
+    abstract double salaryPerYear();
 
-        return salary*14;
-    }
 
-    public boolean leagueWon(){
-        if (leagueWon()){
-            int totalSalary= salaryPerYear() + bonus;
-        }else{
+    public boolean leagueWon() {
+        if (leagueWon()) {
+            double totalSalary = salaryPerYear() + bonus;
+            System.out.println(totalSalary);
+        } else {
             salaryPerYear();
         }
         return false;
