@@ -1,10 +1,12 @@
-public class Node <T>{
+public class Node<T> {
 
     T value;
-    Node<T> nest;
+    Node<T> next;
 
-    public Node(T value, Node<T> nest) {
+    public Node(T value) {
         this.value = value;
-        this.nest = nest;
+
     }
+
+
 }
