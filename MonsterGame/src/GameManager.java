@@ -80,46 +80,54 @@ public class GameManager {
 
     }
 
-    public void playGame (){
+    private void p1AttacksLogic(){
         Random random = new Random();
+
+        int p1AttackerIndex = random.nextInt(player1Monsters.size());
+        Monster p1Attacker = player1Monsters.get(p1AttackerIndex);
+
+        int p2DefenderIndex = random.nextInt(player2Monsters.size());
+        Monster p2Defender = player2Monsters.get(p2DefenderIndex);
+
+        int damage = p1Attacker.monsterAttacks();
+        p2Defender.takeDamage(damage);
+
+        System.out.println(p1Attacker.monsterName + " attacks " + p2Defender.monsterName + " with " + damage + " damage!");
+        if (!p2Defender.isMonsterAlive()) {
+            player2Monsters.remove(p2DefenderIndex);
+            System.out.println(p2Defender.monsterName + " is defeated!");
+
+        }
+    }
+    private void p2AttacksLogic(){
+        Random random = new Random();
+
+        int p2AttackerIndex = random.nextInt(player2Monsters.size());
+        Monster p2Attacker = player2Monsters.get(p2AttackerIndex);
+
+        int p1DefenderIndex = random.nextInt(player1Monsters.size());
+        Monster p1Defender = player1Monsters.get(p1DefenderIndex);
+
+        int damage = p2Attacker.monsterAttacks();
+        p1Defender.takeDamage(damage);
+
+        System.out.println(p2Attacker.monsterName + " attacks " + p1Defender.monsterName + " with " + damage + " damage!");
+
+        if (!p1Defender.isMonsterAlive()) {
+            player1Monsters.remove(p1DefenderIndex);
+            System.out.println(p1Defender.monsterName + " is defeated!");
+        }
+    }
+
+    public void playGame (){
+
         int numberOfRounds = 1;
 
         while (!player1Monsters.isEmpty() && !player2Monsters.isEmpty()){
             System.out.println("Round " + numberOfRounds + " begins!");
-
-            int p1AttackerIndex = random.nextInt(player1Monsters.size());
-            Monster p1Attacker = player1Monsters.get(p1AttackerIndex);
-
-            int p2DefenderIndex = random.nextInt(player2Monsters.size());
-            Monster p2Defender = player2Monsters.get(p2DefenderIndex);
-
-            int damage = p1Attacker.monsterAttacks();
-            p2Defender.takeDamage(damage);
-
-            System.out.println(p1Attacker.monsterName + " attacks " + p2Defender.monsterName + " with " + damage + " damage!");
-
-            if (!p2Defender.isMonsterAlive()) {
-                player2Monsters.remove(p2DefenderIndex);
-                System.out.println(p2Defender.monsterName + " is defeated!");
-            }
-
-            int p2AttackerIndex = random.nextInt(player2Monsters.size());
-            Monster p2Attacker = player2Monsters.get(p2AttackerIndex);
-
-            int p1DefenderIndex = random.nextInt(player1Monsters.size());
-            Monster p1Defender = player1Monsters.get(p1DefenderIndex);
-
-            damage = p2Attacker.monsterAttacks();
-            p1Defender.takeDamage(damage);
-
-            System.out.println(p2Attacker.monsterName + " attacks " + p1Defender.monsterName + " with " + damage + " damage!");
-
-            if (!p1Defender.isMonsterAlive()) {
-                player1Monsters.remove(p1DefenderIndex);
-                System.out.println(p1Defender.monsterName + " is defeated!");
-            }
+            p1AttacksLogic();
+            p2AttacksLogic();
             numberOfRounds++;
-
         }
 
         if (player1Monsters.isEmpty()){
