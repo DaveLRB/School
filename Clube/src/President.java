@@ -15,5 +15,6 @@ public class President extends Staff {
     @Override
     public boolean leagueWon() {
         return super.leagueWon();
+
     }
 }
