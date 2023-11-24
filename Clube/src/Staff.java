@@ -1,26 +1,11 @@
-abstract class Staff {
+public class Staff extends Club {
+    protected double baseSalary;
 
-    public double salary;
-    public double bonus;
-    public static final int MONTHS_WORK = 14;
-    public boolean isLeagueWon;
-
-    public Staff(double salary, double bonus) {
-        this.salary = salary;
-        this.bonus = bonus;
+    public Staff(double baseSalary) {
+        this.baseSalary = baseSalary;
     }
 
-    abstract double salaryPerYear();
-
-
-    public boolean leagueWon() {
-        if (isLeagueWon) {
-            double totalSalary = salaryPerYear() + bonus;
-            System.out.println("Total Salary: " + totalSalary);
-            return true;
-        } else {
-            return false;
-        }
+    public double annualSalary() {
+        return baseSalary * 14;
     }
-
 }

@@ -1,28 +1,17 @@
 public class Coach extends Staff {
-
-
-    public Coach(double salary, double bonus) {
-        super(salary, bonus);
-        this.salary = 120000;
-        this.bonus = 1.2;
+    public Coach(double baseSalary) {
+        super(100000);
     }
 
     @Override
-    double salaryPerYear() {
-        return salary * MONTHS_WORK;
-    }
-
-    @Override
-    public boolean leagueWon() {
-        double totalSalary;
-        if (leagueWon()) {
-            totalSalary = salaryPerYear() * bonus;
-            System.out.println(totalSalary);
+    public double annualSalary() {
+        if (this.isLeagueWon()) {
+            return super.annualSalary() * 1.2;
         } else {
-            totalSalary = salaryPerYear() * 1.1;
-            System.out.println(totalSalary);
+            return super.annualSalary() * 1.1;
         }
-        return false;
     }
 }
+
+
 
