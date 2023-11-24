@@ -1,15 +1,17 @@
 public class Player extends Staff {
     public Player(double baseSalary) {
-        super(150000);
+        super(baseSalary);
     }
 
     @Override
     public double annualSalary() {
         if (this.isLeagueWon()) {
-            return super.annualSalary() * 1.1;
+            return super.baseSalary * 1.1;
         } else {
-            return super.annualSalary() * 1.05;
+            return super.baseSalary * 1.05;
         }
     }
+
+
 }
 

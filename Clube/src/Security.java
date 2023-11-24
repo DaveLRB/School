@@ -2,7 +2,7 @@ public class Security extends Staff {
     private int trespasses;
 
     public Security(double baseSalary) {
-        super(2000);
+        super(baseSalary);
         this.trespasses = 0;
     }
 

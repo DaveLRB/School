@@ -2,7 +2,7 @@ public class BallCatcher extends Staff {
     private int gamesPlayed;
 
     public BallCatcher(double baseSalary) {
-        super(50);
+        super(baseSalary);
         this.gamesPlayed = 0;
     }
 
@@ -13,6 +13,8 @@ public class BallCatcher extends Staff {
     @Override
     public double annualSalary() {
         double bonus = 20 * gamesPlayed;
-        return super.annualSalary() + bonus;
+        return super.baseSalary + bonus;
     }
+
+
 }

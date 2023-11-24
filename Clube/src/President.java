@@ -1,14 +1,14 @@
 public class President extends Staff {
     public President(double baseSalary) {
-        super(80000);
+        super(baseSalary);
     }
 
     @Override
     public double annualSalary() {
         if (this.isLeagueWon()) {
-            return super.annualSalary() + 50000;
+            return super.baseSalary + 50000;
         } else {
-            return super.annualSalary();
+            return super.baseSalary;
         }
     }
 }
