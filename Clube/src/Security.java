@@ -12,6 +12,7 @@ public class Security extends Staff {
 
     @Override
     public double annualSalary() {
+        
         double deductions = 20 * trespasses;
         double finalSalary = super.baseSalary - deductions;
         return finalSalary < 1000 ? 1000 : finalSalary;

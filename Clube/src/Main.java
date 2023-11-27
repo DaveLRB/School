@@ -25,7 +25,7 @@ public class Main {
         President president = new President(80000);
         Player player = new Player(150000);
         Coach coach = new Coach(100000);
-        Security security = new Security(2000);
+        Security security = new Security(5000);
         BallCatcher ballCatcher = new BallCatcher(10);
 
         System.out.println("Did the league won? (true/false)");
