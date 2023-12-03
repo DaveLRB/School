@@ -1,9 +1,12 @@
 public class BallCatcher extends Staff {
     private int gamesPlayed;
+    private Club club;
 
-    public BallCatcher(double baseSalary) {
-        super(baseSalary);
+    public BallCatcher(double baseSalary,Club club) {
+        super(baseSalary,club);
         this.gamesPlayed = 0;
+        this.club=club;
+
     }
 
     public void amountGamesPlayed() {
@@ -12,9 +15,7 @@ public class BallCatcher extends Staff {
 
     @Override
     public double annualSalary() {
-        double bonus = 20 * gamesPlayed;
-        return super.baseSalary + bonus;
+        int bonus = 20 * gamesPlayed;
+        return (super.baseSalary*14) + bonus;
     }
-
-
 }

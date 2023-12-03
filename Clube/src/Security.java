@@ -1,20 +1,27 @@
 public class Security extends Staff {
-    private int trespasses;
+    private int invasions;
+    private Club club;
 
-    public Security(double baseSalary) {
-        super(baseSalary);
-        this.trespasses = 0;
+
+    public Security(double baseSalary,Club club) {
+        super(baseSalary,club);
+        this.invasions = 0;
+        this.club=club;
+
     }
 
-    public void fieldTrespassing() {
-        trespasses++;
+    public void fieldInvasions() {
+        invasions++;
     }
 
     @Override
     public double annualSalary() {
         
-        double deductions = 20 * trespasses;
-        double finalSalary = super.baseSalary - deductions;
-        return finalSalary < 1000 ? 1000 : finalSalary;
+        double deductions = 20 * invasions;
+        double finalSalary = (super.baseSalary*14) - deductions;
+        return Math.max(finalSalary, 1000);
     }
+
+
+
 }

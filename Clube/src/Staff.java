@@ -1,25 +1,31 @@
-public abstract class Staff{
+public abstract class Staff implements Bonus {
     protected double baseSalary;
-    protected boolean isLeagueWon;
+    private Club club;
+    private Bonus bonus;
 
-
-
-    public Staff(double baseSalary) {
+    public Staff(double baseSalary, Club club) {
         this.baseSalary = baseSalary;
-
-
+        this.club = club;
     }
 
     public abstract double annualSalary();
 
-
-    public boolean isLeagueWon() {
-        return isLeagueWon;
+    public Club getClub() {
+        return club;
     }
 
-    public void setLeagueWinner(boolean leagueWinner) {
-        this.isLeagueWon = leagueWinner;
+    public void setBonus(Bonus bonus) {
+        this.bonus = bonus;
     }
 
+    @Override
+    public double applyBonusFix(double baseSalary, int fixedAmountBonus) {
+        return baseSalary + fixedAmountBonus;
+    }
+
+    @Override
+    public double applyBonusPercent(double baseSalary, int bonusPercentage) {
+        return baseSalary * (1 + bonusPercentage / 100.0);
+    }
 
 }

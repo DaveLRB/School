@@ -1,17 +1,20 @@
 public class Coach extends Staff {
-    public Coach(double baseSalary) {
-        super(baseSalary);
+
+    public Coach(double baseSalary, Club club) {
+        super(baseSalary, club);
     }
 
     @Override
     public double annualSalary() {
-        if (this.isLeagueWon()) {
-            return super.baseSalary * 1.2;
-        } else {
-            return super.baseSalary * 1.1;
+        if (getClub().isLeagueWon()) {
+            applyBonusPercent(baseSalary*14,20);
+        }
+            return applyBonusPercent(baseSalary*14,10);
         }
     }
-}
+
+
+
 
 
 
