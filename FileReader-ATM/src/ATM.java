@@ -1,3 +1,8 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class ATM {
@@ -14,6 +19,8 @@ public class ATM {
             if (user.getAccNumber() == accNumber) {
                 double newBalance = user.getBalance() + amount;
                 user.setBalance(newBalance);
+                updateFile(filePath);
+                updateAuditLog("Deposit", user.getName(), accNumber, amount);
                 return true;
             }
         }
@@ -25,6 +32,8 @@ public class ATM {
             if (user.getAccNumber() == accNumber && user.getBalance() >= amount) {
                 double newBalance = user.getBalance() - amount;
                 user.setBalance(newBalance);
+                updateFile(filePath);
+                updateAuditLog("Withdraw", user.getName(), accNumber, amount);
                 return true;
             }
         }
@@ -55,10 +64,27 @@ public class ATM {
 
             fromUser.setBalance(fromNewBalance);
             toUser.setBalance(toNewBalance);
+            updateFile(filePath);
+            updateAuditLog("Transfer", fromUser.getName(), fromAccNumber, amount);
+            updateAuditLog("Transfer Received", toUser.getName(), toAccNumber, amount);
             return true;
         }
         return false;
     }
+
+    private void updateAuditLog(String transactionType, String userName, int accountNumber, double amount) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("auditLog", true))) {
+            LocalDateTime currentDateTime = LocalDateTime.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            String formattedDateTime = currentDateTime.format(formatter);
+
+            String logEntry = "[" + formattedDateTime + "] - " + userName + " - Account Number: " + accountNumber + " - " + transactionType + " " + String.format("%.2f", amount) + "\n";
+            writer.write(logEntry);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public void updateFile(String filePath) {
         FileManagement FileWriterUtil = null;

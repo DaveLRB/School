@@ -26,9 +26,9 @@ public class Main {
             switch (userInput) {
                 case "1":
                     System.out.println("Enter account number:");
-                    int depositAccount = input.nextInt();
+                    int depositAccount = Integer.parseInt(input.nextLine().trim());
                     System.out.println("Enter amount to deposit:");
-                    double depositAmount = input.nextDouble();
+                    double depositAmount = Double.parseDouble(input.nextLine().trim());
                     boolean depositSuccess = atm.deposit(depositAccount, depositAmount);
                     if (depositSuccess) {
                         System.out.println("Deposit successful!");
@@ -38,9 +38,9 @@ public class Main {
                     break;
                 case "2":
                     System.out.println("Enter account number:");
-                    int withdrawAccount = input.nextInt();
+                    int withdrawAccount = Integer.parseInt(input.nextLine().trim());
                     System.out.println("Enter amount to withdraw:");
-                    double withdrawAmount = input.nextDouble();
+                    double withdrawAmount = Double.parseDouble(input.nextLine().trim());
                     boolean withdrawSuccess = atm.withdraw(withdrawAccount, withdrawAmount);
                     if (withdrawSuccess) {
                         System.out.println("Withdrawal successful!");
@@ -50,11 +50,11 @@ public class Main {
                     break;
                 case "3":
                     System.out.println("Enter account number to transfer from:");
-                    int fromAccount = input.nextInt();
+                    int fromAccount = Integer.parseInt(input.nextLine().trim());
                     System.out.println("Enter account number to transfer to:");
-                    int toAccount = input.nextInt();
+                    int toAccount = Integer.parseInt(input.nextLine().trim());
                     System.out.println("Enter amount to transfer:");
-                    double transferAmount = input.nextDouble();
+                    double transferAmount = Double.parseDouble(input.nextLine().trim());
                     boolean transferSuccess = atm.transfer(fromAccount, toAccount, transferAmount);
                     if (transferSuccess) {
                         System.out.println("Transfer successful!");
@@ -62,12 +62,12 @@ public class Main {
                         System.out.println("Transfer failed. Insufficient funds or account not found");
                     }
                     break;
-                case "4":
+                /*case "4":
                     List<User> userData = reader.getUserData();
                     for (User user : userData) {
                         System.out.println(user.getName() + " - " + user.getAccNumber() + " - " + user.getBalance());
                     }
-                    break;
+                    break;*/
                 case "0":
                     System.out.println("Thanks for using our services!");
                     input.close();
@@ -84,7 +84,7 @@ public class Main {
         System.out.println("1.Deposit");
         System.out.println("2.Withdraw");
         System.out.println("3.Transfer");
-        System.out.println("4.Data");
+        //System.out.println("4.Data");
         System.out.println("0.Exit");
     }
 }
