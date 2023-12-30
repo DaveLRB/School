@@ -2,11 +2,14 @@
 public class Main {
     public static void main(String[] args) {
 
-        Thread t1 = new Thread(new MyRunnable());
-            t1.start();
+        Thread tA = new Thread(new TarefaA());
+            tA.start();
 
-        Thread t2 = new MyThread();
-        t2.start();
+        Thread tB = new Thread(new TarefaB());
+        tB.start();
+
+        Thread tC = new Thread(new TarefaC());
+        tC.start();
 
         }
     }

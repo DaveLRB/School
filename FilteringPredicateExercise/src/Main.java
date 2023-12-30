@@ -7,7 +7,6 @@ Then, create a class Filterer that has a method filter which takes a list of obj
  length of each string, only accepting strings with length < 5.)*/
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 public class Main {

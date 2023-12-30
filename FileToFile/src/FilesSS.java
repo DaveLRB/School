@@ -1,10 +1,11 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class FilesSS {
 
-    public static void fileToRead (){
+    public void fileToRead() throws IOException {
         try (Scanner scanner = new Scanner(System.in)) {
             System.out.print("Enter the file name with extension: ");
             String fileName = scanner.nextLine();

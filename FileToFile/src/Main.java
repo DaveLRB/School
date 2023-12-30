@@ -4,9 +4,13 @@ import java.util.Scanner;
 
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
+        FilesSS filesSS = new FilesSS();
+
+        filesSS.fileToRead();
+
+        /*Scanner scanner = new Scanner(System.in);
         System.out.print("Enter password data: ");
         String passData = scanner.nextLine();
 
@@ -16,12 +20,12 @@ public class Main {
         bufferedWriter.newLine();
         bufferedWriter.close();
 
-        /*FileReader fileReader = new FileReader(file, StandardCharsets.UTF_8);
+        FileReader fileReader = new FileReader(file, StandardCharsets.UTF_8);
         int i;
         while ((i = fileReader.read()) != -1) {
             System.out.print((char) i);
         }
-        fileReader.close();*/
+        fileReader.close();
 
 
         System.out.print("Enter user data: ");
@@ -31,15 +35,14 @@ public class Main {
         fileWriter1.write(userData + "\n");
         fileWriter1.flush();
         fileWriter1.close();
-        /*FileReader fileReader1 = new FileReader(file1, StandardCharsets.UTF_8);
+        FileReader fileReader1 = new FileReader(file1, StandardCharsets.UTF_8);
 
         while ((i = fileReader1.read()) != -1) {
             System.out.print((char) i);
         }
-        fileReader1.close();*/
-        scanner.close();
+        fileReader1.close();
+        scanner.close();*/
+
     }
-
-
 }
 

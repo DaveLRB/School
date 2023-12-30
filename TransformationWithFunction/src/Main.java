@@ -36,7 +36,7 @@ public class Main {
         stringList.add("graça");
         stringList.add("sANTIFICADO SEJA");
 
-        //transformer.applyTransformation(stringList,transformationLength);
+        transformer.applyTransformation(stringList,transformationLength);
 
         transformer.applyTransformation(stringList,countVowels);
 

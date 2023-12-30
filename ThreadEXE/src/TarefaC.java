@@ -1,2 +1,13 @@
-package PACKAGE_NAME;public class TarefaC {
+public class TarefaC implements Runnable {
+
+    public void run(){
+        System.out.println("exe task C");
+        try {
+            Thread.sleep(200);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("exe C executed");
+    }
 }
+

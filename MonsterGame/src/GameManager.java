@@ -7,27 +7,44 @@ public class GameManager {
 
     private final List<Monster> player1Monsters;
     private final List<Monster> player2Monsters;
+    private final List<Supernatural> player1Supernatural;
+    private final List<Supernatural> player2Supernatural;
    Scanner input = new Scanner(System.in);
 
     public GameManager() {
         player1Monsters = new ArrayList<>();
         player2Monsters = new ArrayList<>();
+        player1Supernatural= new ArrayList<>();
+        player2Supernatural = new ArrayList<>();
 
     }
 
     public void addP1Monsters(Monster monster) {
         player1Monsters.add(monster);
+
     }
 
     public void addP2Monsters(Monster monster) {
         player2Monsters.add(monster);
+
+    }
+
+    public void addP1Supernaturals(Supernatural supernatural){
+        player1Supernatural.add(supernatural);
+    }
+    public void addP2Supernaturals(Supernatural supernatural){
+        player2Supernatural.add(supernatural);
     }
 
     public void startTheGame(){
         System.out.println("P1 add monsters:");
         addMonstersPlayer(1);
+        System.out.println("P1 add supernaturals:");
+        addSupernaturalsPlayer(1);
         System.out.println("P2 add monsters:");
         addMonstersPlayer(2);
+        System.out.println("P1 add supernaturals:");
+        addSupernaturalsPlayer(2);
     }
 
     private void addMonstersPlayer(int playerNumber){
@@ -79,6 +96,51 @@ public class GameManager {
 
 
     }
+
+    private void addSupernaturalsPlayer(int playerNumber){
+        System.out.println("Enter the number of Supernaturals for Player " + playerNumber + ":");
+        int numMonsters = input.nextInt();
+        input.nextLine();
+
+        for (int i = 0; i< numMonsters; i++){
+            System.out.println("Enter Supernatural type for Supernatural " + (i + 1) + " (Witch , Fairy):");
+            String supernaturalType = input.nextLine();
+
+            System.out.println("Enter Supernatural name:");
+            String supernaturalName = input.nextLine();
+
+            System.out.println("Enter Supernatural health:");
+            int supernaturalHealth = input.nextInt();
+            input.nextLine();
+
+            switch (supernaturalType.toLowerCase()){
+                case"witch":
+                    if (playerNumber == 1){
+                        addP1Supernaturals(new Witch(supernaturalName, supernaturalHealth));
+                    }else {
+                        addP2Supernaturals(new Witch(supernaturalName, supernaturalHealth));
+                    }
+                    break;
+                case "vampire":
+                    if (playerNumber == 1){
+                        addP1Supernaturals(new Fairy(supernaturalName, supernaturalHealth));
+                    }else{
+                        addP2Supernaturals(new Fairy(supernaturalName, supernaturalHealth));
+                    }
+                    break;
+                default:
+                    System.out.println("Invalid supernatural type entered. Please enter Witch or Fairy.");
+                    i--;
+                    break;
+
+
+            }
+        }
+
+
+    }
+
+
 
     private void p1AttacksLogic(){
         Random random = new Random();
