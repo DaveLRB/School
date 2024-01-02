@@ -11,5 +11,8 @@ public class Main {
         Thread tC = new Thread(new TarefaC());
         tC.start();
 
+        //Thread t= new MyThread();
+        //t.run();
+
         }
     }
