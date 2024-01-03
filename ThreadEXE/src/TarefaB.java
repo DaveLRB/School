@@ -1,7 +1,10 @@
-public class TarefaB implements Runnable {
+import com.sun.source.doctree.ThrowsTree;
+
+public class TarefaB extends Thread {
 
     public void run(){
-        System.out.println("exe task B");
+        System.out.println("task B");
+
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
